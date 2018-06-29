@@ -5,16 +5,16 @@
 #####################################################
 
 # Path to output directory
-output_path_creation: /net/scratch_cms3b/fackeldey/trainingssets/
+output_path_creation: /net/scratch_cms3b/degens/trainingssets/
 
 # Filename postfix of merged training dataset
-output_filename: "MSSM_HWW_trainingsset.root"
+output_filename: "CP_trainingsset.root"
 
 # Path to nominal ntuple in files
 tree_path: "tt_nominal/ntuple"
 
 # Base path prefix for processes files
-base_path: /net/scratch_cms3b/tmuller/artus/2017-12-08_23-24_Run2CPStudies_Nominal_Summer16_plusHToTauTauM110-140/merged/
+base_path: /net/scratch_cms3b/tmuller/artus/2018-03-21_23-09_Run2CPStudies_Nominal_classicSvfitPlusConstraints_fixedMelaVBF/merged/ 
 
 # Branch in all files holding the event number used for creating the folds
 event_branch: "event"
@@ -28,27 +28,27 @@ processes:
         files:
             - GluGluH2JetsToTauTauM125CPmixingsmJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen/GluGluH2JetsToTauTauM125CPmixingsmJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen.root   
 
-        cut_string: "trigger==1"  #change
-        weight_string: "XSWeight"  
+        cut_string: "(1.0)*(1.0)*(1.0)*((((1.0)*(1.0))))*eventWeight*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonTight3_2 > 0.5)*(dilepton_veto < 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(mt_1<50.0)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(iso_1 < 0.15)*((q_1*q_2)<0.0)*(1.0) *(njets>1)"  #change
+        weight_string: "1"  
         class: gghsm
 
     gghmm:
         files:
             - GluGluH2JetsToTauTauM125CPmixingmaxmixJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen/GluGluH2JetsToTauTauM125CPmixingmaxmixJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen.root
            
-        cut_string: "trigger==1"    #change
-        weight_string: "XSWeight"  
+        cut_string: "(1.0)*(1.0)*(1.0)*((((1.0)*(1.0))))*eventWeight*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonTight3_2 > 0.5)*(dilepton_veto < 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(mt_1<50.0)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(iso_1 < 0.15)*((q_1*q_2)<0.0)*(1.0)*(njets>1)"    #change
+        weight_string: "1"  
         class: gghmm
 
     gghps:
         files:
             - GluGluH2JetsToTauTauM125CPmixingpseudoscalarJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen/GluGluH2JetsToTauTauM125CPmixingpseudoscalarJHU_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_JHUgen.root
         
-        cut_string: "trigger==1"   #Change cut
-        weight_string: "XSWeight"   
+        cut_string: "(1.0)*(1.0)*(1.0)*((((1.0)*(1.0))))*eventWeight*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonTight3_2 > 0.5)*(dilepton_veto < 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(mt_1<50.0)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(iso_1 < 0.15)*((q_1*q_2)<0.0)*(1.0)*(njets>1)"   #Change cut
+        weight_string: "1"   
         class: gghps
 
-    DY:
+    ZTT:
         files:
             - DY1JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY1JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
             - DY2JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY2JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
@@ -57,17 +57,22 @@ processes:
 	    - DYJetsToLLM10to50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DYJetsToLLM10to50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
 	    - DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1/DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1.root
 	    - DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2/DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2.root			
-        cut_string: "trigger==1"             #Change cut
-        weight_string: "XSWeight"
-        class: DY
+        cut_string: "(gen_match_1 == 5 && gen_match_2 == 5)*(((((1.0)*(1.0)))))*(eventWeight)*((((genbosonmass >= 150.0 && (npartons == 0 || npartons >= 5))*3.95423374e-5) + ((genbosonmass >= 150.0 && npartons == 1)*1.27486147e-5) + ((genbosonmass >= 150.0 && npartons == 2)*1.3012785e-5) + ((genbosonmass >= 150.0 && npartons == 3)*1.33802133e-5) + ((genbosonmass >= 150.0 && npartons == 4)*1.09698723e-5)+((genbosonmass >= 50.0 && genbosonmass < 150.0 && (npartons == 0 || npartons >= 5))*3.95423374e-5) + ((genbosonmass >= 50.0 && genbosonmass < 150.0 && npartons == 1)*1.27486147e-5) + ((genbosonmass >= 50.0 && genbosonmass < 150.0 && npartons == 2)*1.3012785e-5) + ((genbosonmass >= 50.0 && genbosonmass < 150.0 && npartons == 3)*1.33802133e-5) + ((genbosonmass >= 50.0 && genbosonmass < 150.0 && npartons == 4)*1.09698723e-5)+((genbosonmass < 50.0)*numberGeneratedEventsWeight*crossSectionPerEventWeight))/(numberGeneratedEventsWeight*crossSectionPerEventWeight*sampleStitchingWeight))*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonLoose3_1 > 0.5)*(againstMuonLoose3_2 > 0.5)*(againstElectronVLooseMVA6_1 > 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(byTightIsolationMVArun2v1DBoldDMwLT_1 > 0.5)*((gen_match_1 == 5)*0.95 + (gen_match_1 != 5))*((q_1*q_2)<0.0)*zPtReweightWeight*(1.0)*(1.0)*(1.0)*(njets>1)"            #Change cut
+        weight_string: "1"
+        class: ZTT
 
-    WW:
+    ZLL:
         files:
-            - GluGluHToWWTo2L2NuM125_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8/GluGluHToWWTo2L2NuM125_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8.root
-	    - VBFHToWWTo2L2NuM125_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8/VBFHToWWTo2L2NuM125_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8.root
-        cut_string: "trigger==1"   #Change cut
-        weight_string: "XSWeight"
-        class: WW
+            - DY1JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY1JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
+            - DY2JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY2JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
+            - DY3JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY3JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
+	    - DY4JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DY4JetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
+	    - DYJetsToLLM10to50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/DYJetsToLLM10to50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
+	    - DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1/DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1.root
+	    - DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2/DYJetsToLLM50_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2.root			
+        cut_string: "(1.0)*((((1.0)*(1.0))))*eventWeight*(((genbosonmass >= 50.0 && (npartons == 0 || npartons >= 5))*3.95423374e-5) + ((genbosonmass >= 50.0 && npartons == 1)*1.27486147e-5) + ((genbosonmass >= 50.0 && npartons == 2)*1.3012785e-5) + ((genbosonmass >= 50.0 && npartons == 3)*1.33802133e-5) + ((genbosonmass >= 50.0 && npartons == 4)*1.09698723e-5)+((genbosonmass < 50.0)*numberGeneratedEventsWeight*crossSectionPerEventWeight))/(numberGeneratedEventsWeight*crossSectionPerEventWeight*sampleStitchingWeight)*((gen_match_1 < 6 && gen_match_2 < 6 && !(gen_match_1 == 5 && gen_match_2 == 5)) || gen_match_2 == 6 || gen_match_1 == 6)*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonLoose3_1 > 0.5)*(againstMuonLoose3_2 > 0.5)*(againstElectronVLooseMVA6_1 > 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(byTightIsolationMVArun2v1DBoldDMwLT_1 > 0.5)*((gen_match_1 == 5)*0.95 + (gen_match_1 != 5))*((q_1*q_2)<0.0)*zPtReweightWeight*(1.0)*(1.0)*(1.0)*(njets>1)"            #Change cut
+        weight_string: "1"
+        class: ZLL
 
     DiBoson:
         files:
@@ -85,8 +90,8 @@ processes:
 	    - WZTo2L2Q_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8/WZTo2L2Q_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8.root
 	    - ZZTo2L2Q_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8/ZZTo2L2Q_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8.root
 	    - ZZTo4L_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8_ext1/ZZTo4L_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_amcatnlo-pythia8_ext1.root
-        cut_string: "trigger==1"   #Change cut
-        weight_string: "XSWeight"
+        cut_string: "(1.0)*((((1.0)*(1.0))))*eventWeight*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonLoose3_1 > 0.5)*(againstMuonLoose3_2 > 0.5)*(againstElectronVLooseMVA6_1 > 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(byTightIsolationMVArun2v1DBoldDMwLT_1 > 0.5)*((gen_match_1 == 5)*0.95 + (gen_match_1 != 5))*((q_1*q_2)<0.0)*(1.22671436926e-6)/(numberGeneratedEventsWeight*crossSectionPerEventWeight)*(1.0)*(njets>1)"   #Change cut
+        weight_string: "1"
         class: DiBoson
 
     WJets:
@@ -99,7 +104,7 @@ processes:
 	    - W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8/W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8.root
 	    - W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1/W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext1.root
 	    - W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2/W4JetsToLNu_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_madgraph-pythia8_ext2.root
-        cut_string: "(trigger==1)&&((fakeW2l_ele_mva_90p_Iso2016_mu_cut_Tight80x)*(METFilter_DATA)>0)"    #Change cut
+        cut_string: ((((1.0)*(1.0))))*eventWeight*(((npartons == 0 || npartons >= 5)*7.09390278348407e-4) + ((npartons == 1)*1.90063898596475e-4) + ((npartons == 2)*5.8529964471165e-5) + ((npartons == 3)*1.9206444928444e-5) + ((npartons == 4)*1.923548021385e-5))/(numberGeneratedEventsWeight*crossSectionPerEventWeight*sampleStitchingWeight)*(extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonLoose3_1 > 0.5)*(againstMuonLoose3_2 > 0.5)*(againstElectronVLooseMVA6_1 > 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(byTightIsolationMVArun2v1DBoldDMwLT_1 > 0.5)*((gen_match_1 == 5)*0.95 + (gen_match_1 != 5))*((q_1*q_2)<0.0)*(1.0)*(njets>1)"  #Change cut
         weight_string: "1.0"
         class: WJets
 
@@ -107,7 +112,7 @@ processes:
         files:
             - TT_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8/TT_RunIISummer16MiniAODv2_PUMoriond17_13TeV_MINIAOD_powheg-pythia8.root
             
-        cut_string: "trigger==1"            #Change cut
+        cut_string: "((1.0))*(((((1.0)*(1.0)))))*(eventWeight)*((1.0))*((extraelec_veto < 0.5)*(extramuon_veto < 0.5)*(againstMuonLoose3_1 > 0.5)*(againstMuonLoose3_2 > 0.5)*(againstElectronVLooseMVA6_1 > 0.5)*(againstElectronVLooseMVA6_2 > 0.5)*(byTightIsolationMVArun2v1DBoldDMwLT_2 > 0.5)*((gen_match_2 == 5)*0.95 + (gen_match_2 != 5))*(byTightIsolationMVArun2v1DBoldDMwLT_1 > 0.5)*((gen_match_1 == 5)*0.95 + (gen_match_1 != 5))*((q_1*q_2)<0.0))*(topPtReweightWeight)*(1.0)*(njets>1)"           #Change cut
         weight_string: "XSWeight"
         class: Top
 
@@ -121,14 +126,15 @@ processes:
 #################################################################
 
 trainingssets:
-    - /net/scratch_cms3b/fackeldey/trainingssets/fold0_MSSM_HWW_trainingsset.root
-    - /net/scratch_cms3b/fackeldey/trainingssets/fold1_MSSM_HWW_trainingsset.root
+    - /net/scratch_cms3b/degens/trainingssets/fold0_CP_trainingsset.root
+    - /net/scratch_cms3b/degens/trainingssets/fold1_CP_trainingsset.root
 
 class_weights:
-    hww120_300: 1.0
-    hww350_750: 1.0
-    hww800_3000: 10.0
-    DY: 1.0
+    gghsm: 1.0
+    gghmm: 1.0
+    gghps: 1.0
+    ZTT: 1.0
+    ZLL: 1.0
     WW: 1.0
     VVV: 1.0
     DiBoson: 1.0
@@ -136,17 +142,18 @@ class_weights:
     Top: 1.0
 
 classes:
-    - hww120_300
-    - hww350_750
-    - hww800_3000
-    - DY
+    - gghsm
+    - gghmm
+    - gghps
+    - ZTT
+    - ZLL
     - WW
     - VVV
     - DiBoson
     - WJets
     - Top
 
-output_path: /home/peter/mount/data
+output_path: /net/scratch_cms3b/degens/trainingoutput
 
 global_weight: 100.
 
@@ -154,32 +161,27 @@ event_weights: training_weight
 
 #features = training variables
 features:
-    - detajj
-    - dphilep1jet1
-    - dphilep1jet2
-    - dphilep2jet1
-    - dphilep2jet2
-    - dphill
-    - dphilmet
-    - dphilmet1
-    - dphilmet2
-    - jeteta1
-    - jeteta2
-    - jetmass1
-    - jetmass2
+    - jdphi
+    - jdeta
     - mjj
-    - mll
-    - mth
-    - mtw1
-    - mtw2
-    - nbjet
-    - njet
-    - pTWW
-    - ptll
-    - dphijet1met
-    - dphijet2met
-    - jetpt1
-    - jetpt2
+    - jeta_1
+    - jeta_2
+    - jpt_1
+    - jpt_2
+    - jphi_1
+    - jphi_2
+    - m_vis
+    - m_sv
+    - pt_1
+    - pt_2
+    - H_pt
+    - melaDiscriminatorD0MinusGGH
+    - melaDiscriminatorDCPMinusGGH
+    - njets
+    - pzetamiss
+    - pzetavis
+    - ptvis
+    - nbtag
 
 train_test_split: 0.75
 
