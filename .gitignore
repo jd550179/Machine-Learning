@@ -1,3 +1,4 @@
+*.pickle
 *.pyc
 *.py~
 *.yaml~
@@ -6,9 +7,12 @@
 *.png
 *.pdf
 *.npy
+*.npz
+NumpyConversion/
 example_training/
 MSSM_training/
 arrays/
 results/
 plotting/.ipynb_checkpoints/
 *.txt
+*/.law/
